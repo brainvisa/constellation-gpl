@@ -50,7 +50,7 @@ def initialization(self):
     """Provides default values and link of parameters
     """
     databases = [h.name for h in neuroHierarchy.hierarchies()
-                 if h.fso.name == "brainvisa-3.2.0"]
+                 if not h.read_only and h.fso.name == "brainvisa-3.2.0"]
     self.signature["output_database"].setChoices(*databases)
     if len(databases) != 0:
         self.output_database = databases[0]
